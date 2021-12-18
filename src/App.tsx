@@ -1,25 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {ThemeProvider} from "styled-components";
 
-function App() {
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
+import Router from "./routes";
+import {theme} from "./styles/theme";
+import GlobalStyle from "./styles/globalStyles";
+
+function App(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle/>
+        <ToastContainer limit={1}/>
+        <Router/>
+      </ThemeProvider>
   );
 }
 
